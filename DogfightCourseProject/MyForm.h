@@ -1,5 +1,6 @@
 #pragma once
 #include "EndScreen.h"
+
 namespace DogfightCourseProject {
 
 	using namespace System;
@@ -9,13 +10,10 @@ namespace DogfightCourseProject {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Summary for MyForm
-	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
-		bool goLeft, goRight, shooting,  checkScore;//isGameOver,
+		bool goLeft, goRight, shooting,  checkScore;
 		int score;
 		int playerSpeed = 5;
 		int enemySpeed;
@@ -53,16 +51,9 @@ namespace DogfightCourseProject {
 
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
@@ -262,7 +253,7 @@ namespace DogfightCourseProject {
 
 	}
 	private: System::Void keyIsDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		if (e->KeyCode == Keys::Left)  //->Left)
+		if (e->KeyCode == Keys::Left)  
 		{
 			goLeft = true;
 		}
@@ -273,7 +264,7 @@ namespace DogfightCourseProject {
 
 	}
 	private: System::Void keyisUp(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		if (e->KeyCode == Keys::Left)  //->Left)
+		if (e->KeyCode == Keys::Left) 
 		{
 			goLeft = false;
 		}
@@ -288,9 +279,6 @@ namespace DogfightCourseProject {
 			bullet->Left = player->Left + (player->Width/2.33);
 		}
 
-		//if (e->KeyCode == Keys::Enter && isGameOver == true) {
-		//	resetGame();
-		//}
 
 	}
 	private: System::Void resetGame() {
@@ -313,16 +301,13 @@ namespace DogfightCourseProject {
 		scoreTxt->Text = score.ToString();
 	}
 	private: System::Void gameOver() {
-		//isGameOver = true;
 		gameTimer->Stop();
 
 		EndScreen^ final = gcnew EndScreen(score);
 		this->Hide();
-		final->ShowDialog(); // Викликати форму EndScreen модально
+		final->ShowDialog();
 		this->Close();
-		//scoreTxt->Text += Environment::NewLine + "GAME OVER" + Environment::NewLine + "Press Enter to try again";
 	}
 
 };
 }
- 

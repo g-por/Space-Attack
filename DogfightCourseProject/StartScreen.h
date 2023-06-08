@@ -1,4 +1,5 @@
 #pragma once
+
 #include "HelpScreen.h"
 #include "MyForm.h"
 namespace DogfightCourseProject {
@@ -117,14 +118,12 @@ namespace DogfightCourseProject {
 #pragma endregion
 	private: System::Void LoadGame(System::Object^ sender, System::EventArgs^ e) {
 		MyForm^ Form = gcnew MyForm();
-		this->Hide(); // Приховати першу форму
+		this->Hide();
 		Form->Show();
-		//this->Show();
-
 	}
 	private: System::Void LoadHelp(System::Object^ sender, System::EventArgs^ e) {
 		HelpScreen^ helpForm = gcnew HelpScreen();
-		this->Hide(); // Приховати першу форму
+		this->Hide();
 		helpForm->ShowDialog();
 		this->Show();
 	}
