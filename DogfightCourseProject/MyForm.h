@@ -15,7 +15,7 @@ namespace DogfightCourseProject {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
-		bool goLeft, goRight, shooting, isGameOver, checkScore;
+		bool goLeft, goRight, shooting,  checkScore;//isGameOver,
 		int score;
 		int playerSpeed = 5;
 		int enemySpeed;
@@ -288,9 +288,9 @@ namespace DogfightCourseProject {
 			bullet->Left = player->Left + (player->Width/2.33);
 		}
 
-		if (e->KeyCode == Keys::Enter && isGameOver == true) {
-			resetGame();
-		}
+		//if (e->KeyCode == Keys::Enter && isGameOver == true) {
+		//	resetGame();
+		//}
 
 	}
 	private: System::Void resetGame() {
@@ -313,12 +313,12 @@ namespace DogfightCourseProject {
 		scoreTxt->Text = score.ToString();
 	}
 	private: System::Void gameOver() {
-		isGameOver = true;
+		//isGameOver = true;
 		gameTimer->Stop();
 
-		EndScreen^ final = gcnew EndScreen();
+		EndScreen^ final = gcnew EndScreen(score);
+		this->Hide();
 		final->ShowDialog(); // Викликати форму EndScreen модально
-
 		this->Close();
 		//scoreTxt->Text += Environment::NewLine + "GAME OVER" + Environment::NewLine + "Press Enter to try again";
 	}

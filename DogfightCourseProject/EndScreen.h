@@ -17,9 +17,9 @@ namespace DogfightCourseProject {
 	public ref class EndScreen : public System::Windows::Forms::Form
 	{
 	public:
-		EndScreen(void)
+		EndScreen(int score)
 		{
-			InitializeComponent();
+			InitializeComponent(score);
 			//
 			//TODO: Add the constructor code here
 			//
@@ -53,7 +53,7 @@ namespace DogfightCourseProject {
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
-		void InitializeComponent(void)
+		void InitializeComponent(int score)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(EndScreen::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -74,7 +74,7 @@ namespace DogfightCourseProject {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(450, 68);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"You lose! Score: ";
+			this->label1->Text = L"You lose! Score: " + score.ToString();
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// pictureBox1
