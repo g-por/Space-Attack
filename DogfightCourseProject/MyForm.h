@@ -1,5 +1,5 @@
 #pragma once
-
+#include "EndScreen.h"
 namespace DogfightCourseProject {
 
 	using namespace System;
@@ -23,14 +23,6 @@ namespace DogfightCourseProject {
 		int level = 1;
 		Random^ rnd = gcnew Random();
 
-	public:
-
-
-	public:
-
-	public:
-
-	public:
 
 	private: System::Windows::Forms::Timer^ gameTimer;
 	public:
@@ -41,10 +33,6 @@ namespace DogfightCourseProject {
 			InitializeComponent();
 			resetGame();
 		}
-	private:
-
-
-
 
 	protected:
 		~MyForm()
@@ -62,15 +50,6 @@ namespace DogfightCourseProject {
 	private: System::Windows::Forms::Label^ scoreTxt;
 
 	private: System::ComponentModel::IContainer^ components;
-	internal:
-	private:
-
-	protected:
-
-	protected:
-
-
-
 
 
 	private:
@@ -229,7 +208,6 @@ namespace DogfightCourseProject {
 			gameOver();
 		}
 
-
 		if (goLeft == true && player->Left > -75)
 		{
 			player->Left -= playerSpeed;
@@ -275,18 +253,10 @@ namespace DogfightCourseProject {
 
 		if (score != 0 && score % 10 == 0 && checkScore == true) {
 			enemySpeed += 1;
-			//textInf->Text = scoreTxt->Text += Environment::NewLine + "Level " + level.ToString();
-			//gameTimer->Interval = 5000;
-			//scoreTxt->Text += Environment::NewLine + "Level " + level.ToString();
-			//Timer^ timer = gcnew Timer(gcnew TimerCallback(timerCb), null, 2000, 0);
-			//Sleep(3000);
-			//scoreTxt->Text = "Level " + level;
 			bulletSpeed += 1;
 			playerSpeed += 1;
 			level += 1;
 			checkScore = false;
-			//gameTimer->Interval = 1;
-
 		}
 
 
@@ -345,15 +315,14 @@ namespace DogfightCourseProject {
 	private: System::Void gameOver() {
 		isGameOver = true;
 		gameTimer->Stop();
-		scoreTxt->Text += Environment::NewLine + "GAME OVER" + Environment::NewLine + "Press Enter to try again";
+
+		EndScreen^ final = gcnew EndScreen();
+		final->ShowDialog(); // Викликати форму EndScreen модально
+
+		this->Close();
+		//scoreTxt->Text += Environment::NewLine + "GAME OVER" + Environment::NewLine + "Press Enter to try again";
 	}
 
-
-
-
-	private: System::Void buttonHelp_Click(System::Object^ sender, System::EventArgs^ e) {
-		scoreTxt->Text += Environment::NewLine + "Corporal, your main task is not to miss a single alien ship!To do this, you can use the arrowsand activate the weapon with the 'Spacebar'" + Environment::NewLine + "Press START to start yor own battle";
-	}
 };
 }
  

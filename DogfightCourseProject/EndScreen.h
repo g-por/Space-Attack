@@ -1,6 +1,6 @@
 #pragma once
-#include "MyForm.h"
-#include "StartScreen.h"
+//#include "MyForm.h"
+//#include "StartScreen.h"
 
 namespace DogfightCourseProject {
 
@@ -140,9 +140,9 @@ namespace DogfightCourseProject {
 
 		}
 		private: System::Void returnToMain(System::Object^ sender, System::EventArgs^ e) {
-			////StartForm^ startGame = gcnew StartForm();
-			////this->Hide(); // Приховати першу форму
-			////startGame->ShowDialog();
+			//StartScreen^ startGame = gcnew StartScreen();
+			//this->Hide(); // Приховати першу форму
+			//startGame->ShowDialog();
 			//this->Show();
 		
 		}

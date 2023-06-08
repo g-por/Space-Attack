@@ -118,8 +118,8 @@ namespace DogfightCourseProject {
 	private: System::Void LoadGame(System::Object^ sender, System::EventArgs^ e) {
 		MyForm^ Form = gcnew MyForm();
 		this->Hide(); // Приховати першу форму
-		Form->ShowDialog();
-		this->Show();
+		Form->Show();
+		//this->Show();
 
 	}
 	private: System::Void LoadHelp(System::Object^ sender, System::EventArgs^ e) {
