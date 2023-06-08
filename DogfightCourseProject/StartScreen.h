@@ -1,5 +1,6 @@
 #pragma once
-
+#include "HelpScreen.h"
+#include "MyForm.h"
 namespace DogfightCourseProject {
 
 	using namespace System;
@@ -60,15 +61,18 @@ namespace DogfightCourseProject {
 			// 
 			// labelStart
 			// 
+			this->labelStart->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->labelStart->AutoSize = true;
 			this->labelStart->BackColor = System::Drawing::Color::Transparent;
 			this->labelStart->Font = (gcnew System::Drawing::Font(L"Segoe Script", 36, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(204)));
-			this->labelStart->Location = System::Drawing::Point(78, 103);
+			this->labelStart->Location = System::Drawing::Point(44, 116);
 			this->labelStart->Name = L"labelStart";
 			this->labelStart->Size = System::Drawing::Size(987, 99);
 			this->labelStart->TabIndex = 0;
 			this->labelStart->Text = L"Welcome to the \"Space Attack\"";
+			this->labelStart->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// button1
 			// 
@@ -112,11 +116,17 @@ namespace DogfightCourseProject {
 		}
 #pragma endregion
 	private: System::Void LoadGame(System::Object^ sender, System::EventArgs^ e) {
-		//MyForm^ myWindow = gcnew MyForm();
-		//myWindow->Show();
-		//Random ^ rnd = gcnew Random();
+		MyForm^ Form = gcnew MyForm();
+		this->Hide(); // Приховати першу форму
+		Form->ShowDialog();
+		this->Show();
+
 	}
 	private: System::Void LoadHelp(System::Object^ sender, System::EventArgs^ e) {
+		HelpScreen^ helpForm = gcnew HelpScreen();
+		this->Hide(); // Приховати першу форму
+		helpForm->ShowDialog();
+		this->Show();
 	}
 };
 }

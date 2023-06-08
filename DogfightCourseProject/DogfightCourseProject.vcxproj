@@ -121,11 +121,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EndScreen.cpp" />
     <ClCompile Include="HelpScreen.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="StartScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EndScreen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="HelpScreen.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -137,6 +141,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EndScreen.resx">
+      <DependentUpon>EndScreen.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HelpScreen.resx">
       <DependentUpon>HelpScreen.h</DependentUpon>
     </EmbeddedResource>
